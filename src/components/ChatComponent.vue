@@ -1,5 +1,5 @@
 <template>
-  <div class="w-100 d-flex flex-column">
+  <div class="w-100 bg-info  d-flex flex-column">
     <h1>Lista de mensajes</h1>
     
     <ChatMessage v-for="(message, index) in messages" :message="message" :key="index"/>

@@ -1,10 +1,10 @@
 <template>
   <section class="d-flex container" style="height: 100vh;">
-    <FormularioChat colorDefault="#f00" name="Goku" srcImg="https://media.gq.com.mx/photos/5eb5954e51cd5e1b340e8b67/16:9/w_2560%2Cc_limit/dia-de-goku.png" @form-sent="formHandlerUserA"/>
+    <FormularioChat colorDefault="#f00" :name="userNameLeft" :srcImg="userImgLeft" @form-sent="formHandlerUserA"/>
       <div class="bg-info flex-grow-1">
         <ChatComponent :messages="msjList"/>
       </div>
-    <FormularioChat colorProp="#0000ff" name="Vegeta" srcImg="https://i.blogs.es/b60b7d/vegeta/1366_2000.jpeg" @form-sent="formHandlerUserB"/>
+    <FormularioChat colorProp="#0000ff" :name="userNameRight" :srcImg="userImgRight" @form-sent="formHandlerUserB"/>
   </section>
 </template>
 
@@ -41,9 +41,21 @@ export default {
       this.msjList.push({user:'userB',...data});      
     },
     async hitApi(){
-      const resp = await fetch('');
+      const resp = await fetch('https://randomuser.me/api/?results=2');
       const data = await resp.json();
-      console.log(data);
+      const usersList = data.results;
+      
+      
+      // console.log(usersList);
+      // console.log(usersList[0].name.title);
+      // console.log(usersList[0].picture.large);
+
+
+      this.userNameLeft = `${usersList[0].name.title} ${usersList[0].name.first}`;
+      this.userImgLeft = `${usersList[0].picture.large}`
+      
+      this.userNameRight = `${usersList[1].name.title} ${usersList[1].name.first}`;
+      this.userImgRight = `${usersList[1].picture.large}`
 
     }
   },
