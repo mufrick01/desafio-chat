@@ -1,14 +1,14 @@
 <template>
   <form style="width: 400px;" class="p-2" @submit.prevent="emitForm">
-    <img :src="srcImg" style="width: 80%;">
+    <img :src="srcImg" style="width: 100%;">
     <h3>{{ name }}</h3>
     <label for="">
       <input v-model="color" type="color">
     </label>
     <label for="">
-      <textarea v-model="msj" maxlength="150"></textarea>
+      <textarea v-model="msj" maxlength="150" style="height: 200px;"></textarea>
     </label>
-    <button type="submit" class="p-2 w-75">Enviar</button>
+    <button type="submit" class="p-2 w-100">Enviar</button>
   </form>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   data() {
     
     return {
-      msj: 'text for example',
+      msj: 'text to example',
       color: this.colorProp,
     }
   },
@@ -44,10 +44,10 @@ label {
 }
 
 label>input {
-  width: 90%;
+  width: 100%;
 }
 
 textarea {
-  width: 90%;
+  width: 100%;
 }
 </style>

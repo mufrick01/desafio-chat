@@ -1,5 +1,8 @@
 <template>
-  <section class="d-flex container" style="height: 100vh;">
+  <section v-if="!apiLoad">
+    <SpinnerComponent/>
+  </section>
+  <section v-if="apiLoad" class="d-flex container" style="height: 100vh;">
     <FormularioChat colorDefault="#f00" :name="userNameLeft" :srcImg="userImgLeft" @form-sent="formHandlerUserA"/>
       <div class="bg-info flex-grow-1">
         <ChatComponent :messages="msjList"/>
@@ -11,6 +14,7 @@
 <script>
 import ChatComponent from './components/ChatComponent.vue';
 import FormularioChat from './components/FormularioChat.vue';
+import SpinnerComponent from './components/SpinnerComponent.vue';
 
 
 export default {
@@ -18,9 +22,11 @@ export default {
   components: {
     FormularioChat,
     ChatComponent,
+    SpinnerComponent,
   },
   data(){
     return{
+      apiLoad:false,
       msjList:[],
 
       userNameLeft:'',
@@ -57,6 +63,8 @@ export default {
       this.userNameRight = `${usersList[1].name.title} ${usersList[1].name.first}`;
       this.userImgRight = `${usersList[1].picture.large}`
 
+
+      this.apiLoad=true;
     }
   },
   
