@@ -1,10 +1,10 @@
 <template>
-    <div  :class="{ 'ms-auto': this.message.user == 'userB' }" class="w-75 m-2 borde">
-            <p class="fw-bold m-2" :class="{ 'text-end': this.message.user == 'userB' }" >@{{ message.name }}</p>
-            <div :style="{ backgroundColor: message.color }">
-                <span class="m-2 cw" :class="{ 'text-end': this.message.user == 'userB' }" >{{ message.msj }}</span>
-                <p class="text-end me-4">{{ message.time }}</p>
-            </div>
+    <div :class="{ 'ms-auto': this.message.user == 'userB' }" class=" m-2 borde" style="width: 70%;">
+        <p class="fw-bold m-2" :class="{ 'text-end': this.message.user == 'userB' }">@{{ message.name }}</p>
+        <div :style="{ backgroundColor: message.color }">
+            <p class="m-2 p-1">{{ message.msj }}</p>
+            <p class="text-end me-4">{{ message.time }}</p>
+        </div>
     </div>
 </template>
 
@@ -18,17 +18,15 @@ export default {
 </script>
 
 <style scoped>
-.borde{
+.borde {
     border-radius: 20px;
 }
-.hr{
+
+.hr {
     width: 100%;
     height: 3px;
     background-color: white;
     opacity: 0.5
 }
 
-.cw{
-    width: max-content
-}
 </style>

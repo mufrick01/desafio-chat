@@ -1,11 +1,11 @@
 <template>
-  <div id="app">
-    <section class="row text-white container-fluid justify-content-center" style="height: 100vh; background-color: #333;">
-      <FormularioChat colorDefault="#f00" :name="userNameLeft" :srcImg="userImgLeft" @form-sent="formHandlerUserA" class="col-3"/>
-      <div class="bg-dark col-6">
+  <div id="app" class="w-100">
+    <section class="text-white d-flex gap-2 justify-content-center w-100" style="height: 100vh; background-color: #333;">
+      <FormularioChat colorDefault="#f00" :name="userNameLeft" :srcImg="userImgLeft" @form-sent="formHandlerUserA"/>
+      <div class="bg-dark flex-grow-1">
         <ChatComponent :messages="msjList"/>
       </div>
-      <FormularioChat colorProp="#0000ff" :name="userNameRight" :srcImg="userImgRight" @form-sent="formHandlerUserB" class="col-3"/>
+      <FormularioChat colorProp="#0000ff" :name="userNameRight" :srcImg="userImgRight" @form-sent="formHandlerUserB"/>
     </section>
   </div>
 </template>

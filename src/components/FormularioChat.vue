@@ -1,5 +1,5 @@
 <template>
-  <form style="width: 400px;" class="p-3 mt-5" @submit.prevent="emitForm">
+  <form style="width: 300px;" class="mt-5 p-3" @submit.prevent="emitForm">
     <img :src="srcImg" style="width: 100%; border-radius: 50%;">
     <h3>{{ name }}</h3>
     <label for="">
