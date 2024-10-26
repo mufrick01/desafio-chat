@@ -1,20 +1,18 @@
 <template>
-  <section v-if="!apiLoad">
-    <SpinnerComponent/>
-  </section>
-  <section v-if="apiLoad" class="d-flex container" style="height: 100vh;">
-    <FormularioChat colorDefault="#f00" :name="userNameLeft" :srcImg="userImgLeft" @form-sent="formHandlerUserA"/>
-      <div class="bg-info flex-grow-1">
+  <div id="app">
+    <section class="row text-white container-fluid justify-content-center" style="height: 100vh; background-color: #333;">
+      <FormularioChat colorDefault="#f00" :name="userNameLeft" :srcImg="userImgLeft" @form-sent="formHandlerUserA" class="col-3"/>
+      <div class="bg-dark col-6">
         <ChatComponent :messages="msjList"/>
       </div>
-    <FormularioChat colorProp="#0000ff" :name="userNameRight" :srcImg="userImgRight" @form-sent="formHandlerUserB"/>
-  </section>
+      <FormularioChat colorProp="#0000ff" :name="userNameRight" :srcImg="userImgRight" @form-sent="formHandlerUserB" class="col-3"/>
+    </section>
+  </div>
 </template>
 
 <script>
 import ChatComponent from './components/ChatComponent.vue';
 import FormularioChat from './components/FormularioChat.vue';
-import SpinnerComponent from './components/SpinnerComponent.vue';
 
 
 export default {
@@ -22,7 +20,6 @@ export default {
   components: {
     FormularioChat,
     ChatComponent,
-    SpinnerComponent,
   },
   data(){
     return{
@@ -72,6 +69,4 @@ export default {
 </script>
 
 <style>
-#app {
-}
 </style>
